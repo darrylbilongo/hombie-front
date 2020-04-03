@@ -9,14 +9,12 @@ const initialState = {
 export default (state = initialState, action) => {
   switch(action.type) {
     case FETCH_HOBBIES_REQUEST: {
-      console.log(action)
       return {
         ...state,
         loading: true
       }
     }
     case FETCH_HOBBIES_SUCCESS: {
-      console.log(action)
       return {
         ...state,
         list: [...state.list, action.payload.items],
@@ -25,14 +23,12 @@ export default (state = initialState, action) => {
       }
     }
     case FETCH_HOBBIES_FAILURE: {
-      console.log(action)
       return {
         ...state,
         loading: false
       }
     }
     default: {
-      console.log('missed', action)
       return state;
     }
   }

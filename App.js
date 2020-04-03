@@ -11,4 +11,4 @@ export default () => (
   <Provider store={store}>
     <App />
   </Provider>
-)
+);

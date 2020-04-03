@@ -20,7 +20,6 @@ export function fetchHobbies(offset, max){
         }
       })
     } catch(error){
-      console.error(error)
       dispatch({
         type: FETCH_HOBBIES_FAILURE,
         payload: {

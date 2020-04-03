@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { StyleSheet, Text, View } from 'react-native';
 import { fetchHobbies } from '../actions/hobbies';
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
