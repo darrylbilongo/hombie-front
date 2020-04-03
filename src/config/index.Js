@@ -1,0 +1,1 @@
+export const BACKEND_HOSTNAME = '127.0.0.1';
