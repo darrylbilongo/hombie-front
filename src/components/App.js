@@ -1,28 +1,34 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, ScrollView } from 'react-native';
 import { fetchHobbies } from '../actions/hobbies';
-import { Appbar } from 'react-native-paper';
+import CardList from './CardList';
+import Constants from 'expo-constants';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: Constants.statusBarHeight,
+  },
+  scrollView: {
+    marginHorizontal: 20,
+  },
+  text: {
+    fontSize: 42,
   },
 });
 
 export default () => {
-  const hobbies = useSelector(state => state.hobbies)
+  const hobbies = useSelector(state => state.hobbies.list)
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchHobbies(0, 100)).then(console.log)
   }, [])
   return (
-    <View style={styles.container}>
-      <Appbar />
-      <Text>Open up App.js to start working on your app! {JSON.stringify(hobbies)}</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.scrollView}>
+        {<CardList list={hobbies}/>}
+      </ScrollView>
+    </SafeAreaView>
   );
 };

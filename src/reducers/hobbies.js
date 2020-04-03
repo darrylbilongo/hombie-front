@@ -17,7 +17,7 @@ export default (state = initialState, action) => {
     case FETCH_HOBBIES_SUCCESS: {
       return {
         ...state,
-        list: [...state.list, action.payload.items],
+        list: [...state.list, ...action.payload.items],
         items: action.payload.items.reduce((acc, val) => ({ ...acc, [val.id]: val }), state.items),
         loading: false
       }
