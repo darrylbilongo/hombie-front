@@ -1,5 +1,4 @@
 import { BACKEND_HOSTNAME } from '../config'
-import {v4 as uuid } from 'uuid';
 import Chance from 'chance';
 import _ from 'lodash';
 
@@ -8,7 +7,7 @@ const chance = new Chance()
 const hobbies = {};
 
 new Array(150).fill(0).forEach((x, i) => {
-  const id = uuid()
+  const id = chance.guid()
   hobbies[id] = {
     id,
     name: chance.name(),
