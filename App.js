@@ -1,22 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Provider as PaperProvider, Button } from 'react-native-paper';
-import MyComponent from './src/components/cardview';
-import AppBar from './src/components/appBar';
+import { Provider, } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import reducers from './src/reducers';
+import App from './src/components/App'
 
-export default function App() {
-  return (
-    <PaperProvider>
-      <AppBar/>
-    </PaperProvider>
-  );
-}
+const store = createStore(reducers, applyMiddleware(thunk));
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default () => (
+  <Provider store={store}>
+    <App />
+  </Provider>
+);

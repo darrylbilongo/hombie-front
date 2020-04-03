@@ -2,17 +2,17 @@
     "img1": {
         "title": "image1",
         "description": "image 1",
-        "imageUrl": ""
+        "imageUrl": "'https://picsum.photos/700'"
     },
     "img2": {
         "title": "image2",
         "description": "",
-        "imageUrl": ""
+        "imageUrl": "'https://picsum.photos/700'"
     },
     "img3": {
         "title": "image 3",
         "description": "",
-        "imageUrl": ""
+        "imageUrl": "'https://picsum.photos/700'"
     }
 }
 
