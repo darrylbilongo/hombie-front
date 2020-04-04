@@ -1,5 +1,23 @@
 import Api from '../api';
-import { FETCH_HOBBIES_FAILURE, FETCH_HOBBIES_REQUEST, FETCH_HOBBIES_SUCCESS } from '../actionTypes';
+import { FETCH_HOBBIES_FAILURE, FETCH_HOBBIES_REQUEST, FETCH_HOBBIES_SUCCESS, SELECT_HOBBY, UNSELECT_HOBBY } from '../actionTypes';
+
+export function selectHobby(id){
+  return {
+    type: SELECT_HOBBY,
+    payload: {
+      id
+    }
+  }
+}
+
+export function unselectHobby(id){
+  return {
+    type: UNSELECT_HOBBY,
+    payload: {
+      id
+    }
+  }
+}
 
 export function fetchHobbies(offset, max){
   return async dispatch => {
@@ -11,7 +29,6 @@ export function fetchHobbies(offset, max){
     })
     try {
       const { data } = await Api.fetchHobbies(offset, max);
-      console.log(data)
       dispatch({
         type: FETCH_HOBBIES_SUCCESS,
         payload: {
