@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
 
 export default () => {
   //const hobbies = useSelector(state => state.hobbies.list);
-  const hobbies = getHobbies();
+  const hobbies = getHobbies(state => state.hobbies.list);
   const selectedHobbies = useSelector(state => state.hobbies.selected);
   const dispatch = useDispatch()
   useEffect(() => {

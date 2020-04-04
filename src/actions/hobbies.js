@@ -50,7 +50,17 @@ export function fetchHobbies(offset, max){
 }
 
 export function getHobbies () {
-  return axios
+  // const foo = async () => {
+  //   const APIurl = 'http://localhost:8082/api/hobbies'
+  //   const fetchRes = await fetch(APIurl)
+
+    
+  // }
+
+  // return foo();
+  
+
+   const fetchRes = axios
         .get('http://localhost:8082/api/hobbies')
         .then(
             res => {
@@ -61,4 +71,12 @@ export function getHobbies () {
               alert("Ne peut pas avoir les evenements")
               console.log(err)
   })
+
+  return async dispatch => ({
+    type: FETCH_HOBBIES_SUCCESS,
+    payload: {
+      items: fetchRes
+    }
+  })
 }
+
