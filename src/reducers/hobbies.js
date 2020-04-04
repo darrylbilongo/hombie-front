@@ -1,9 +1,10 @@
-import { FETCH_HOBBIES_REQUEST, FETCH_HOBBIES_SUCCESS, FETCH_HOBBIES_FAILURE } from '../actionTypes'
+import { FETCH_HOBBIES_REQUEST, FETCH_HOBBIES_SUCCESS, FETCH_HOBBIES_FAILURE, SELECT_HOBBY, UNSELECT_HOBBY } from '../actionTypes'
 
 const initialState = {
   loading: false,
   list: [],
-  items: {}
+  items: {},
+  selected: []
 }
 
 export default (state = initialState, action) => {
@@ -26,6 +27,18 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: false
+      }
+    }
+    case SELECT_HOBBY: {
+      return {
+        ...state,
+        selected: [...state.selected, action.payload.id]
+      }
+    }
+    case UNSELECT_HOBBY: {
+      return {
+        ...state,
+        selected: state.selected.filter(h => h.id === action.payload.id)
       }
     }
     default: {
