@@ -1,5 +1,6 @@
 import Api from '../api';
 import { FETCH_HOBBIES_FAILURE, FETCH_HOBBIES_REQUEST, FETCH_HOBBIES_SUCCESS, SELECT_HOBBY, UNSELECT_HOBBY } from '../actionTypes';
+import axios from 'axios';
 
 export function selectHobby(id){
   return {
@@ -46,4 +47,18 @@ export function fetchHobbies(offset, max){
       })
     }
   }
+}
+
+export function getHobbies () {
+  return axios
+        .get('http://localhost:8082/api/hobbies')
+        .then(
+            res => {
+              return res;
+            }
+        )
+        .catch(err => {
+              alert("Ne peut pas avoir les evenements")
+              console.log(err)
+  })
 }

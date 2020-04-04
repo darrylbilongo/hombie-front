@@ -5,6 +5,8 @@ import thunk from 'redux-thunk';
 import { Provider as PaperProvider } from 'react-native-paper';
 import reducers from './src/reducers';
 import App from './src/components/App'
+import Routes from './src/components/Routes'
+import MyHobies from './src/components/MyHobies';
 
 const store = createStore(reducers, applyMiddleware(thunk));
 
